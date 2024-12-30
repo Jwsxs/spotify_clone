@@ -1,0 +1,105 @@
+:root {
+    font-family: 'Varela Round', monospace;
+    background: #444;
+}
+
+.top_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100vw;
+    height: 50px;
+    transition: all 0.5s ease-in-out;
+}
+
+.top_wrapper .search {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1;
+    height: 50%;
+    background: #333;
+
+    border: 2px solid rgba(255, 255, 255, .25);
+    border-radius: 50px;
+    outline: none;
+
+    text-align: left;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+}
+
+.top_wrapper .search_svg {
+    pointer-events: none;
+    fill: rgba(255, 255, 255, .5);
+    position: absolute;
+
+    width: 20px;
+    aspect-ratio: 1/1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease-in-out;
+}
+
+.top_wrapper .search_input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, .75);
+    outline: none;
+    font-size: .75rem;
+    cursor: default;
+    text-align: center;
+    overflow: hidden;
+
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.top_wrapper .search_input:focus {
+    width: 200px;
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+}
+
+.top_wrapper .search:focus-within .search_svg {
+    left: 10px;
+    transform: translateX(0) translateY(-50%);
+}
+
+.top_wrapper .config_button {
+    position: absolute;
+    cursor: pointer;
+    right: 20px;
+    fill: rgba(255, 255, 255, .5);
+    width: 20px;
+    height: 20px;
+}
+
+@keyframes rotation_anim {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.top_wrapper .config_button:hover {
+    animation-name: rotation_anim;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+}
